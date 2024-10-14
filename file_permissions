@@ -1,6 +1,18 @@
 #!/bin/bash
 # File containing users and permissions
 file="user_permissions.txt"
+
+# Check for -h option
+if [[ "$1" == "-h" ]]; then
+    echo "Usage: ./file_permissions.sh"
+    echo "This script reads a file with user permissions and prompts for updates."
+    echo "File format: username: permissions"
+    echo "Example:"
+    echo "  user1: rwxr-x---"
+    echo "  user2: rwxr--r--"
+    exit 0
+fi
+
 # Loop through the file
 while read line; do
     # Extract user and permissions
