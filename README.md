@@ -1,6 +1,6 @@
-# IT3038_BashProject_InactiveUsers
+# IT3038_BashProject_FilePermissions  
 
-# This script is to automate the process of seeing inactive user logins in a domain environment
+# This script is meant to make th eprocess of managing file permissions easier for users. 
 
-#This script will include a file of users with their last login time.
-#Using the file, the script can output the number of active users, the number inactive users within the past 60 days, and the list of the inactive users.
+#The script will only include one file with a couple different users. All with different permissions
+#The script has a help function and will also check if the person running the script is putting in the correct format when updating a permission. 
