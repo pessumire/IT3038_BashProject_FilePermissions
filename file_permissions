@@ -1,31 +1,20 @@
 #!/bin/bash
-
 # File containing users and permissions
-file="random_users_permissions.txt"
+file="user_permissions.txt"
+# Loop through the file
+while read line; do
+    # Extract user and permissions
+    user=$(echo $line | cut -d ":" -f 1)
+    permissions=$(echo $line | cut -d ":" -f 2)
 
-# Function to update permissions for a user
-update_permissions() {
-    local user=$1
-    local current_permissions=$2
+    # Show current permissions
+    echo "Current permissions for $user: $permissions"
 
-    # Display current permissions
-    echo "Current permissions for $user: $current_permissions"
+    # Ask for new permissions
+    echo -n "Enter new permissions for $user: "
+    read new_permissions
 
-    # Prompt user for new permissions
-    read -p "Enter new permissions for $user (e.g., rwxr-xr-x): " new_permissions
-
-    # Display the updated permissions
+    # Show updated permissions (no actual change to the file system)
     echo "Updated permissions for $user: $new_permissions"
-    echo
-}
-
-# Read through the file line by line
-while read -r line; do
-    # Split the line into user and permissions using parameter expansion
-    user="${line%%:*}"
-    permissions="${line#*: }"
-
-    # Update permissions for the user
-    update_permissions "$user" "$permissions"
-
+    echo ""
 done < "$file"
