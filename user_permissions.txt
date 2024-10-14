@@ -1,0 +1,7 @@
+# Random users and file permissions
+user1: rwxr-x---
+user2: rwxr--r--
+user3: r--r-----
+user4: rwxrwxrwx
+user5: r-xr-xr-x
+user6: rw-r-----
