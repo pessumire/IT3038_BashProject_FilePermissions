@@ -1,7 +1,6 @@
 #!/bin/bash
 # File containing users and permissions
 file="user_permissions.txt"
-
 # Check for -h option
 if [[ "$1" == "-h" ]]; then
     echo "Usage: ./file_permissions.sh"
@@ -13,13 +12,14 @@ if [[ "$1" == "-h" ]]; then
     exit 0
 fi
 # Function to validate permissions format
-validate_permissions() {
+validate_permissions(){ 
     local perm=$1
     if [[ "$perm" =~ ^[rwx-]{9}$ ]]; then
         return 0  # Valid format
     else
         return 1  # Invalid format
     fi
+}
 # Loop through the file
 while read line; do
     # Extract user and permissions
@@ -44,5 +44,4 @@ while read line; do
             echo "Invalid permissions format. Please use r, w, x, and - (e.g., rwxr-x---)."
           fi
         done
-
 done < "$file"
